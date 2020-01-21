@@ -9,6 +9,7 @@ def rock_paper_scissors():
     else:
         p2win_game()
 
+
 def draw_game():
     draw = input("DRAW! Try again? y/n ").lower()
     if draw == "y":
@@ -18,6 +19,7 @@ def draw_game():
     else:
         print(ValueError)
 
+
 def p1win_game():
     p1_win = input("P1 wins! Try again? y/n ").lower()
     if p1_win == "y":
@@ -25,7 +27,8 @@ def p1win_game():
     elif p1_win == "n":
         print("Good Game!")
     else:
-        return (ValueError)
+        return ValueError
+
 
 def p2win_game():
     p2_win = input("P2 wins! Try again? y/n ").lower()
@@ -34,6 +37,7 @@ def p2win_game():
     elif p2_win == "n":
         print("Good Game!")
     else:
-        return (ValueError)
+        return ValueError
+
 
 rock_paper_scissors()
