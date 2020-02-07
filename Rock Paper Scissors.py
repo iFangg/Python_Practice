@@ -5,9 +5,9 @@ def rock_paper_scissors(p1_score, p2_score):
     if p1 == p2:
         draw_game(p1_score, p2_score)
     elif advantages[p1] == p2:
-        p1win_game(p1_score, p2_score)
+        win_game("P1", p1_score, p2_score)
     else:
-        p2win_game(p1_score, p2_score)
+        win_game("P2", p1_score, p2_score)
 
 
 def draw_game(p1_score, p2_score):
@@ -21,24 +21,15 @@ def draw_game(p1_score, p2_score):
         print(ValueError)
 
 
-def p1win_game(p1_score, p2_score):
-    p1_score += 1
-    p1_win = input("P1 wins! Try again? y/n ").lower()
-    if p1_win == "y":
-        return rock_paper_scissors(p1_score, p2_score)
-    elif p1_win == "n":
-        print("Good Game!")
-        scoring(p1_score, p2_score)
+def win_game(msg, p1_score, p2_score):
+    if msg == "P1":
+        p1_score += 1
     else:
-        return ValueError
-
-
-def p2win_game(p1_score, p2_score):
-    p2_score += 1
-    p2_win = input("P2 wins! Try again? y/n ").lower()
-    if p2_win == "y":
+        p2_score += 1
+    win = input(msg + " wins! Try again? y/n ").lower()
+    if win == "y":
         return rock_paper_scissors(p1_score, p2_score)
-    elif p2_win == "n":
+    elif win == "n":
         print("Good Game!")
         scoring(p1_score, p2_score)
     else:
@@ -46,10 +37,9 @@ def p2win_game(p1_score, p2_score):
 
 
 def scoring(p1_score, p2_score):
-    print("P1: " + str(p1_score))
-    print("P2: " + str(p2_score))
+    print("P1: " + str(p1_score) + "\nP2: " + str(p2_score))
     if p1_score == p2_score:
-        print("DRAW")
+        print("DRAW!")
     elif p1_score > p2_score:
         print("Player 1 Wins!")
     else:
