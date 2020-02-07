@@ -1,7 +1,7 @@
 def rock_paper_scissors(p1_score, p2_score):
     p1 = input("Scissors, Paper, Rock! ").lower()
     p2 = input("Scissors, Paper, Rock! ").lower()
-    advantages = {'rock': 'scissors', 'scissors': 'paper', 'paper': 'scissors'}
+    advantages = {'rock': 'scissors', 'scissors': 'paper', 'paper': 'rock'}
     if p1 == p2:
         draw_game(p1_score, p2_score)
     elif advantages[p1] == p2:
