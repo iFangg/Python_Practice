@@ -15,10 +15,11 @@ def draw_game(p1_score, p2_score):
     if draw == "y":
         return rock_paper_scissors(p1_score, p2_score)
     elif draw == "n":
-        print("Good Game!")
+        print("Good Game(s)!")
         scoring(p1_score, p2_score)
     else:
-        print(ValueError)
+        print("ERROR")
+        return draw_game(p1_score, p2_score)
 
 
 def win_game(msg, p1_score, p2_score):
@@ -30,10 +31,11 @@ def win_game(msg, p1_score, p2_score):
     if win == "y":
         return rock_paper_scissors(p1_score, p2_score)
     elif win == "n":
-        print("Good Game!")
+        print("Good Game(s)!")
         scoring(p1_score, p2_score)
     else:
-        return ValueError
+        print("ERROR")
+        return win_game(msg, p1_score, p2_score)
 
 
 def scoring(p1_score, p2_score):
@@ -46,4 +48,5 @@ def scoring(p1_score, p2_score):
         print("Player 2 Wins!")
 
 
-rock_paper_scissors(0, 0)
+if __name__ == "__main__":
+    rock_paper_scissors(0, 0)
