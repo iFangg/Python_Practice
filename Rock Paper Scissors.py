@@ -10,16 +10,20 @@ def rock_paper_scissors(p1_score, p2_score):
         win_game("P2", p1_score, p2_score)
 
 
-def draw_game(p1_score, p2_score):
-    draw = input("DRAW! Try again? y/n ").lower()
-    if draw == "y":
+def play_again(msg, p1_score, p2_score):
+    answer = input(msg + " Try again? y/n ").lower()
+    if answer == "y":
         return rock_paper_scissors(p1_score, p2_score)
-    elif draw == "n":
+    elif answer == "n":
         print("Good Game(s)!")
         scoring(p1_score, p2_score)
     else:
         print("ERROR")
-        return draw_game(p1_score, p2_score)
+        return play_again(msg, p1_score, p2_score)
+
+
+def draw_game(p1_score, p2_score):
+    play_again("DRAW!", p1_score, p2_score)
 
 
 def win_game(msg, p1_score, p2_score):
@@ -27,15 +31,7 @@ def win_game(msg, p1_score, p2_score):
         p1_score += 1
     else:
         p2_score += 1
-    win = input(msg + " wins! Try again? y/n ").lower()
-    if win == "y":
-        return rock_paper_scissors(p1_score, p2_score)
-    elif win == "n":
-        print("Good Game(s)!")
-        scoring(p1_score, p2_score)
-    else:
-        print("ERROR")
-        return win_game(msg, p1_score, p2_score)
+    play_again(msg + " wins!", p1_score, p2_score)
 
 
 def scoring(p1_score, p2_score):
